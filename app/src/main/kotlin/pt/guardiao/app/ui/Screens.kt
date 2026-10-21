@@ -28,7 +28,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalClipboard
+import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.liveRegion
@@ -94,7 +96,8 @@ fun CheckScreen(initialText: String, busy: Boolean, onCheck: (String) -> Unit) {
     var text by remember(initialText) { mutableStateOf(initialText) }
     var showEmpty by remember { mutableStateOf(false) }
     var exampleIndex by remember { mutableStateOf(0) }
-    val clipboard = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
+    val scope = rememberCoroutineScope()
     ScrollColumn {
         ScreenTitle(stringResource(R.string.check_title))
         OutlinedTextField(
@@ -122,7 +125,11 @@ fun CheckScreen(initialText: String, busy: Boolean, onCheck: (String) -> Unit) {
             }, icon = Icons.Filled.Search)
         }
         SecondaryButton(stringResource(R.string.check_paste), {
-            clipboard.getText()?.text?.let { text = it; showEmpty = false }
+            scope.launch {
+                val clip = clipboard.getClipEntry()?.clipData
+                val pasted = if (clip != null && clip.itemCount > 0) clip.getItemAt(0).text?.toString() else null
+                if (pasted != null) { text = pasted; showEmpty = false }
+            }
         })
         TextButton(onClick = {
             text = Samples.EXAMPLES[exampleIndex % Samples.EXAMPLES.size]

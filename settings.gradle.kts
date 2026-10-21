@@ -4,12 +4,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    plugins {
-        id("com.android.application") version "8.13.0"
-        id("org.jetbrains.kotlin.android") version "2.2.21"
-        id("org.jetbrains.kotlin.plugin.compose") version "2.2.21"
-        id("org.jetbrains.kotlin.jvm") version "2.2.21"
-    }
+    // Plugin versions live in the root build.gradle.kts, so every module shares one copy.
 }
 
 dependencyResolutionManagement {
