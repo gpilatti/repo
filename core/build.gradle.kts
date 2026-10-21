@@ -31,6 +31,10 @@ tasks.test {
         events("failed")
         exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
     }
-    // The evaluation test writes a metrics report here.
-    systemProperty("evaluation.report", layout.buildDirectory.file("reports/evaluation.md").get().asFile.absolutePath)
+    // The evaluation tests write metrics reports here. Declared as outputs so the
+    // reports are restored when Gradle reuses cached test results.
+    val reports = layout.buildDirectory.dir("reports")
+    systemProperty("evaluation.report", reports.get().file("evaluation.md").asFile.absolutePath)
+    outputs.file(reports.map { it.file("evaluation.md") })
+    outputs.file(reports.map { it.file("holdout.md") })
 }
