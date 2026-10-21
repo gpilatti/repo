@@ -1,0 +1,61 @@
+[
+  {
+    "id": "S09-01",
+    "scenario": 9,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "Ana Silva",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá, desculpa incomodar. Preciso urgentemente que me transfiras 600€, depois explico. Não consigo aceder à minha app do banco.",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "MONEY_TRANSFER_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "Saved contact (possible account takeover) suddenly asks for urgent money. Name is known, so risk must come from the request, not the sender."
+  },
+  {
+    "id": "S09-02",
+    "scenario": 9,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "Rui Costa",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá! Enviaram-me um código para o teu número por engano, podes reencaminhar-me o código de 6 dígitos?",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Compromised contact used to steal the next account."
+  },
+  {
+    "id": "S09-03",
+    "scenario": 9,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "Maria João",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Vota na minha sobrinha no concurso, é só clicar aqui e confirmar com o código que vais receber: https://concurso-votacao.example",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Fake voting link used for takeover, from a known contact."
+  }
+]

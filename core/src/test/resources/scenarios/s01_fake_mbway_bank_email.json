@@ -1,0 +1,67 @@
+[
+  {
+    "id": "S01-01",
+    "scenario": 1,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": "MB WAY",
+    "senderAddress": "seguranca@mbway-pj-validacao.example",
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Caro cliente, no âmbito da parceria entre a Polícia Judiciária e a MB WAY, é necessário atualizar os dados do seu cartão Multibanco. Clique aqui para validar os seus dados: https://mbway-pj-validacao.example/atualizar",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LOOKALIKE_DOMAIN",
+      "ACCOUNT_VERIFICATION_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake PJ/MB WAY partnership: impersonates authority and payment brand, lookalike link, requests card data."
+  },
+  {
+    "id": "S01-02",
+    "scenario": 1,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": "Serviço MB WAY",
+    "senderAddress": "apoio.mbway@gmail.com",
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Informamos que o seu serviço MB WAY será desativado. Para manter o acesso, indique o número do cartão, a data de validade e o código CVV na resposta a este email.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "CREDENTIAL_REQUEST",
+      "SENDER_NAME_DOMAIN_MISMATCH"
+    ],
+    "mustNotInclude": [],
+    "why": "Requests card number and CVV with a threat of deactivation."
+  },
+  {
+    "id": "S01-03",
+    "scenario": 1,
+    "label": "scam",
+    "language": "en",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Dear customer, your bank card has been suspended. Please confirm your card details at https://secure-santander-verify.example/login within 24 hours to avoid permanent closure.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LOOKALIKE_DOMAIN"
+    ],
+    "mustNotInclude": [],
+    "why": "English variant: bank claim, threat, lookalike link, verification request."
+  }
+]

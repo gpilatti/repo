@@ -1,0 +1,61 @@
+[
+  {
+    "id": "S07-01",
+    "scenario": 7,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": "Diretor",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Preciso que faças uma transferência hoje mesmo para um fornecedor novo. É confidencial, não comentes com ninguém até eu voltar. IBAN PT50 0000 0000 0000 0000 0000 1",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "SECRECY_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "CEO fraud pattern: transfer + secrecy + urgency + new IBAN (PJ alert Feb 2026)."
+  },
+  {
+    "id": "S07-02",
+    "scenario": 7,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 107",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Tia, preciso muito da tua ajuda. Envia-me 200€ por MB WAY, mas fica entre nós, ok?",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Family impersonation with secrecy."
+  },
+  {
+    "id": "S07-03",
+    "scenario": 7,
+    "label": "scam",
+    "language": "en",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "I need you to wire 5,000 to this account urgently. Keep this secret, don't tell anyone in the office.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "English CEO fraud."
+  }
+]

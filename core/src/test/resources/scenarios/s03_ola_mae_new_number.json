@@ -1,0 +1,110 @@
+[
+  {
+    "id": "S03-01",
+    "scenario": 3,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 101",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá mãe, perdi o telefone e estou a usar temporariamente este número. Guarda este número. Preciso que me faças uma transferência urgente de 480€, amanhã devolvo.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "NEW_NUMBER_CLAIM",
+      "MONEY_TRANSFER_REQUEST",
+      "SENDER_NOT_IN_CONTACTS"
+    ],
+    "mustNotInclude": [],
+    "why": "Classic \"Olá mãe\": new number + money request + urgency, from an unsaved number (PJ alert)."
+  },
+  {
+    "id": "S03-02",
+    "scenario": 3,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 102",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá pai, o meu telemóvel avariou, este é o meu novo número. Guarda o meu novo contacto.",
+    "expectedMin": "CAUTION",
+    "expectedMax": "HIGH",
+    "mustInclude": [
+      "NEW_NUMBER_CLAIM"
+    ],
+    "mustNotInclude": [],
+    "why": "First message of the scam: new-number claim only, no request yet. Should advise calling the old number, not accuse."
+  },
+  {
+    "id": "S03-03",
+    "scenario": 3,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 103",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Pai, sou eu o teu filho. Estou com um problema sério, consegues fazer um MB WAY de 350 euros para este número? Não digas nada à mãe.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "SECRECY_REQUEST",
+      "MONEY_TRANSFER_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "Identity claim + MB WAY request + secrecy."
+  },
+  {
+    "id": "S03-04",
+    "scenario": 3,
+    "label": "scam",
+    "language": "en",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+44 7000 000104",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Hi mum, I lost my phone, this is my new number. Can you send me 300 euros today? I'll pay you back.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "NEW_NUMBER_CLAIM"
+    ],
+    "mustNotInclude": [],
+    "why": "English variant (\"Hi Mum\" scam)."
+  },
+  {
+    "id": "S03-05",
+    "scenario": 3,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 105",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Mãe preciso de ajuda, tenho uma conta para pagar hoje e a minha app do banco não funciona. Podes pagar esta conta por mim? PT50 0000 0000 0000 0000 0000 0",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "BANK_ACCOUNT_NUMBER"
+    ],
+    "mustNotInclude": [],
+    "why": "Money request with IBAN from an unsaved number, no explicit new-number claim."
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "S06-01",
+    "scenario": 6,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Parabéns! Foi selecionado para receber um prémio de 1000€. Para levantar o prémio, clique aqui: https://premio-cliente.xyz/receber",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "PRIZE_REFUND_OR_INVESTMENT"
+    ],
+    "mustNotInclude": [],
+    "why": "Prize lure with link."
+  },
+  {
+    "id": "S06-02",
+    "scenario": 6,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Tem direito a um reembolso de IRS de 312,40€. Confirme os seus dados bancários para receber em https://portaldasfinancas-reembolso.example",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Fake tax refund with lookalike link."
+  },
+  {
+    "id": "S06-03",
+    "scenario": 6,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 106",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá! Sou consultora de investimentos. Com um investimento de 250€ em criptomoedas tem lucro garantido de 30% por semana. Instale a aplicação que lhe envio para começarmos.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "REMOTE_ACCESS_REQUEST",
+      "UNUSUAL_PAYMENT_METHOD"
+    ],
+    "mustNotInclude": [],
+    "why": "Crypto investment lure with remote install request."
+  },
+  {
+    "id": "S06-04",
+    "scenario": 6,
+    "label": "scam",
+    "language": "en",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "You have been named the beneficiary of an inheritance of 2.5 million euros. To claim your inheritance, send a processing fee by bitcoin.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Inheritance lure with crypto payment."
+  }
+]

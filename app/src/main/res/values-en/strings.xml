@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English. Partial: untranslated strings fall back to Portuguese. Full translation is planned. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="tab_home">Home</string>
+    <string name="tab_protection">Protection</string>
+    <string name="tab_help">Help</string>
+    <string name="back">Back</string>
+    <string name="home_check_message">Check a message</string>
+    <string name="check_run">Check</string>
+    <string name="level_critical">Very high risk</string>
+    <string name="level_high">High risk</string>
+    <string name="level_caution">Needs attention</string>
+    <string name="level_none">No warning signs</string>
+    <string name="result_understood">I understand</string>
+    <string name="process_text_label">Check for scam</string>
+</resources>

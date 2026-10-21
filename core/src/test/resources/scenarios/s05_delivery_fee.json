@@ -1,0 +1,64 @@
+[
+  {
+    "id": "S05-01",
+    "scenario": 5,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "CTT: a sua encomenda está retida. Pague a taxa de envio de 1,99€ em https://ctt-entregas-pt.example/pagar para reagendar a entrega.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LOOKALIKE_DOMAIN",
+      "PAYMENT_DEMAND"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake CTT small-fee payment with lookalike link (CTT phishing examples page)."
+  },
+  {
+    "id": "S05-02",
+    "scenario": 5,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "A sua encomenda aguarda pagamento de taxas aduaneiras. Pagamento em https://entrega-pendente.top/pt",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "UNUSUAL_DOMAIN_ENDING"
+    ],
+    "mustNotInclude": [],
+    "why": "Delivery fee with unusual domain ending, no brand."
+  },
+  {
+    "id": "S05-03",
+    "scenario": 5,
+    "label": "scam",
+    "language": "en",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "DHL: your parcel is on hold. Pay the customs fee here: https://dhl-parcel-fee.example/pay",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "English DHL variant."
+  }
+]

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A simple shield with a tick. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,28 L76,36 L76,52 C76,66 66,77 54,81 C42,77 32,66 32,52 L32,36 Z" />
+    <path
+        android:fillColor="#1F4E79"
+        android:pathData="M49,62 L41,54 L44.5,50.5 L49,55 L63.5,40.5 L67,44 Z" />
+</vector>

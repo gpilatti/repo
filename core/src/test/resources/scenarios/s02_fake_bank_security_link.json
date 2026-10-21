@@ -1,0 +1,87 @@
+[
+  {
+    "id": "S02-01",
+    "scenario": 2,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "CGD: O seu acesso à Caixadirecta foi bloqueado por motivos de segurança. Reative em https://cgd-reativar-acesso.example",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LOOKALIKE_DOMAIN",
+      "THREAT"
+    ],
+    "mustNotInclude": [],
+    "why": "Spoofed bank SMS/notification with lookalike link and blocking threat (pattern described by CGD security pages)."
+  },
+  {
+    "id": "S02-02",
+    "scenario": 2,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Novo Banco: detetámos um acesso invulgar à sua conta. Confirme a sua identidade em bit.ly/nb-seguranca-0000 para evitar a suspensão.",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LINK_SHORTENER"
+    ],
+    "mustNotInclude": [],
+    "why": "Bank claim, shortened link, verification request, suspension threat."
+  },
+  {
+    "id": "S02-03",
+    "scenario": 2,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Daqui fala o departamento de segurança do seu banco. Para cancelar a operação suspeita, diga-me o código que recebeu por SMS agora mesmo.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "CREDENTIAL_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake bank employee asking for the SMS code (\"Token out\" pattern reported by PJ)."
+  },
+  {
+    "id": "S02-04",
+    "scenario": 2,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Millennium: o seu dispositivo foi desassociado. Clique no link para validar: http://192.0.2.10/millennium",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "IP_ADDRESS_LINK"
+    ],
+    "mustNotInclude": [],
+    "why": "IP-address link and brand mention."
+  }
+]

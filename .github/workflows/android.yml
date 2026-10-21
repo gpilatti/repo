@@ -1,0 +1,51 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Engine tests and synthetic evaluation
+        run: ./gradlew :core:test --stacktrace
+
+      - name: App unit tests, lint and debug APK
+        run: ./gradlew :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --stacktrace
+
+      - name: Evaluation summary
+        if: always()
+        run: |
+          cat core/build/reports/evaluation.md >> "$GITHUB_STEP_SUMMARY" || true
+          cat core/build/reports/holdout.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: guardiao-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            core/build/reports/
+            app/build/reports/

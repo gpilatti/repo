@@ -1,0 +1,86 @@
+[
+  {
+    "id": "S04-01",
+    "scenario": 4,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "AT - Autoridade Tributária: tem um valor em dívida de 198,95€. Regularize até hoje para evitar a penhora: https://at-gov-pagamentos.example/regularizar",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "THREAT",
+      "PAYMENT_DEMAND"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake tax authority SMS threatening seizure, payment demand and link (2026 AT campaign pattern)."
+  },
+  {
+    "id": "S04-02",
+    "scenario": 4,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Segurança Social: a sua conta foi bloqueada. Ative a autenticação em dois passos e confirme os seus dados no link https://seg-social-ativar.example",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "LOOKALIKE_DOMAIN"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake Segurança Social message with lookalike link."
+  },
+  {
+    "id": "S04-03",
+    "scenario": 4,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": "Policia Judiciaria",
+    "senderAddress": "notificacao.pj@outlook.com",
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Polícia Judiciária - Notificação. Foi aberto um processo crime contra si. Responda a este email no prazo de 48 horas, caso contrário será emitido um mandado de detenção.",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "AUTHORITY_CLAIM",
+      "THREAT"
+    ],
+    "mustNotInclude": [],
+    "why": "Fake PJ/Interpol summons: authority + threat + urgency, no link."
+  },
+  {
+    "id": "S04-04",
+    "scenario": 4,
+    "label": "scam",
+    "language": "en",
+    "source": "USER_SHARED",
+    "sender": "Police Department",
+    "senderAddress": "police.notice@gmail.com",
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Police notice: a court case has been opened against you. Pay the fine of 450 EUR within 24 hours to avoid arrest. Reply to this email.",
+    "expectedMin": "HIGH",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "English fake authority with payment demand and threat."
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "S08-01",
+    "scenario": 8,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 108",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Olá, enviei-te um código de 6 dígitos por engano. Podes enviar-me o código que recebeste por SMS?",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "CREDENTIAL_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "WhatsApp account takeover: asks for the verification code."
+  },
+  {
+    "id": "S08-02",
+    "scenario": 8,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+351 900 000 109",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Para receber o pagamento do artigo que vendeu no OLX, vá a uma caixa Multibanco, escolha MB WAY e introduza o código que lhe vou enviar.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [
+      "CREDENTIAL_REQUEST"
+    ],
+    "mustNotInclude": [],
+    "why": "OLX/Vinted MB WAY association scam (BdP description)."
+  },
+  {
+    "id": "S08-03",
+    "scenario": 8,
+    "label": "scam",
+    "language": "pt-PT",
+    "source": "USER_SHARED",
+    "sender": null,
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Somos do apoio técnico. Instale o AnyDesk e diga-nos o PIN do seu cartão para protegermos a sua conta.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "Tech support + remote access + PIN request."
+  },
+  {
+    "id": "S08-04",
+    "scenario": 8,
+    "label": "scam",
+    "language": "en",
+    "source": "WHATSAPP_NOTIFICATION",
+    "sender": "+1 000 000 0110",
+    "senderAddress": null,
+    "subject": null,
+    "links": [],
+    "attachments": [],
+    "completeness": "COMPLETE",
+    "body": "Hi, it's WhatsApp support team. Please send me the verification code you received so we can keep your account active.",
+    "expectedMin": "CRITICAL",
+    "expectedMax": "CRITICAL",
+    "mustInclude": [],
+    "mustNotInclude": [],
+    "why": "English WhatsApp code request."
+  }
+]

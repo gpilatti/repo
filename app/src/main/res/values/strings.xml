@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default language: European Portuguese (pt-PT). Short sentences, familiar words. -->
+<resources>
+    <string name="app_name">Guardião</string>
+    <string name="listener_label">Guardião: avisos de burla</string>
+    <string name="process_text_label">Verificar burla</string>
+
+    <!-- Navigation -->
+    <string name="tab_home">Início</string>
+    <string name="tab_protection">Proteção</string>
+    <string name="tab_help">Ajuda</string>
+    <string name="back">Voltar</string>
+
+    <!-- Home -->
+    <string name="home_status_active">A proteção automática está ativa</string>
+    <string name="home_status_active_detail">Vemos as notificações do WhatsApp e do email e avisamos se algo parecer burla. Não vemos tudo: veja o que fazemos em \"Proteção\".</string>
+    <string name="home_status_paused">A proteção automática está em pausa</string>
+    <string name="home_status_paused_detail">Não estamos a ver notificações. Pode continuar a verificar mensagens aqui.</string>
+    <string name="home_status_off">A proteção automática está desligada</string>
+    <string name="home_status_off_detail">Pode verificar qualquer mensagem aqui. Para avisos automáticos, ative em \"Proteção\".</string>
+    <string name="home_no_alerts">Nenhum aviso desde que o telemóvel foi ligado.</string>
+    <string name="home_last_alert">Último aviso: %1$s</string>
+    <string name="home_open_last_alert">Ver o último aviso</string>
+    <string name="home_check_message">Verificar uma mensagem</string>
+    <string name="home_check_message_detail">Copie ou partilhe a mensagem e nós dizemos se tem sinais de burla.</string>
+
+    <!-- Check screen -->
+    <string name="check_title">Verificar uma mensagem</string>
+    <string name="check_hint">Cole ou escreva aqui a mensagem</string>
+    <string name="check_paste">Colar mensagem</string>
+    <string name="check_run">Verificar</string>
+    <string name="check_try_example">Experimentar com um exemplo</string>
+    <string name="check_privacy_note">A mensagem é verificada só neste telemóvel e não fica guardada.</string>
+    <string name="check_empty">Escreva ou cole uma mensagem primeiro.</string>
+    <string name="check_working">A verificar…</string>
+
+    <!-- Result screen -->
+    <string name="level_critical">Risco muito alto</string>
+    <string name="level_high">Risco alto</string>
+    <string name="level_caution">Merece atenção</string>
+    <string name="level_none">Sem sinais de alerta</string>
+    <string name="result_why">Porque é que avisamos</string>
+    <string name="result_what_to_do">O que deve fazer</string>
+    <string name="result_evidence">Partes da mensagem que nos chamaram a atenção</string>
+    <string name="result_limits">O que não conseguimos ver</string>
+    <string name="result_call_trusted">Ligar a alguém de confiança</string>
+    <string name="result_share">Pedir ajuda a alguém de confiança</string>
+    <string name="result_what_should_i_do">O que devo fazer?</string>
+    <string name="result_understood">Percebi</string>
+    <string name="result_from_alert">Este aviso veio de uma mensagem que recebeu. Por privacidade, não guardámos a mensagem.</string>
+    <string name="share_subject">Pode ajudar-me a ver esta mensagem?</string>
+    <string name="share_intro">Recebi uma mensagem e o Guardião avisou:</string>
+    <string name="share_outro">Pode ligar-me para vermos juntos antes de eu fazer alguma coisa?</string>
+
+    <!-- Protection screen -->
+    <string name="protection_title">Proteção</string>
+    <string name="protection_whatsapp">WhatsApp</string>
+    <string name="protection_email">Email (Gmail, Outlook e outros)</string>
+    <string name="protection_manual">Verificar mensagens à mão</string>
+    <string name="state_on">Ligado</string>
+    <string name="state_off">Desligado</string>
+    <string name="state_paused">Em pausa</string>
+    <string name="state_always">Sempre disponível</string>
+    <string name="protection_whatsapp_detail">Vemos o texto que aparece na notificação. Não vemos conversas antigas, fotografias, áudios nem chamadas. Se as pré-visualizações estiverem desligadas, não vemos nada.</string>
+    <string name="protection_email_detail">Vemos só o início do email que aparece na notificação. Para verificar um email completo, copie o texto e use \"Verificar uma mensagem\".</string>
+    <string name="protection_manual_detail">Funciona sempre, mesmo sem dar acesso às notificações.</string>
+    <string name="protection_enable_access">Ativar avisos automáticos</string>
+    <string name="protection_manage_access">Gerir acesso às notificações</string>
+    <string name="protection_pause">Pausar avisos automáticos</string>
+    <string name="protection_resume">Retomar avisos automáticos</string>
+    <string name="protection_notifications_off">Os avisos do Guardião estão bloqueados nas definições do telemóvel. Sem isso, não o conseguimos avisar.</string>
+    <string name="protection_allow_notifications">Permitir avisos do Guardião</string>
+    <string name="protection_privacy_title">A sua privacidade</string>
+    <string name="protection_privacy_body">• O Guardião não tem acesso à Internet. As mensagens são verificadas só neste telemóvel.\n• Não guardamos mensagens, nomes nem números.\n• Os avisos no ecrã bloqueado não mostram o conteúdo.\n• Pode desligar tudo quando quiser.</string>
+
+    <!-- Help screen -->
+    <string name="help_title">Ajuda</string>
+    <string name="help_already_paid_title">Já enviei dinheiro ou dados</string>
+    <string name="help_already_paid_body">1. Ligue já ao seu banco, para o número no verso do cartão ou no site oficial.\n2. Mude as palavras-passe que tenha partilhado.\n3. Apresente queixa na PSP, GNR ou Polícia Judiciária.\n4. Em caso de perigo imediato, ligue 112.</string>
+    <string name="help_rules_title">Regras simples</string>
+    <string name="help_rules_body">• Nunca partilhe códigos, PIN ou palavras-passe. O banco e a polícia nunca os pedem.\n• Se um familiar diz que mudou de número, ligue para o número antigo.\n• Não abra links de mensagens inesperadas.\n• Quem tem pressa ou pede segredo merece desconfiança.\n• Na dúvida, pare e fale com alguém de confiança.</string>
+    <string name="help_trusted_title">Pessoa de confiança</string>
+    <string name="help_trusted_body">Opcional. Guarde o número de alguém a quem possa ligar quando tiver dúvidas. Fica só neste telemóvel.</string>
+    <string name="help_trusted_name">Nome</string>
+    <string name="help_trusted_number">Número de telefone</string>
+    <string name="help_trusted_save">Guardar</string>
+    <string name="help_trusted_saved">Guardado.</string>
+    <string name="help_trusted_remove">Apagar</string>
+    <string name="help_practice">Ver um aviso de exemplo</string>
+    <string name="help_onboarding_again">Rever a introdução</string>
+
+    <!-- Onboarding -->
+    <string name="onb_continue">Continuar</string>
+    <string name="onb_not_now">Agora não</string>
+    <string name="onb_finish">Começar</string>
+    <string name="onb_1_title">Olá. O Guardião ajuda a evitar burlas.</string>
+    <string name="onb_1_body">Quando uma mensagem parecer suspeita, explicamos porquê e o que deve fazer.</string>
+    <string name="onb_2_title">O que conseguimos ver</string>
+    <string name="onb_2_body">Se nos der permissão, vemos o texto que aparece nas notificações do WhatsApp e do email.\n\nNão vemos conversas antigas, fotografias, áudios nem chamadas. Não lemos outras aplicações.\n\nPode também copiar qualquer mensagem e verificá-la aqui.</string>
+    <string name="onb_3_title">A sua privacidade</string>
+    <string name="onb_3_body">As mensagens são verificadas só neste telemóvel. O Guardião não tem acesso à Internet e não guarda as suas mensagens.\n\nUma verificação automática pode falhar. Na dúvida, confirme sempre por outro meio.</string>
+    <string name="onb_4_title">Avisos no ecrã</string>
+    <string name="onb_4_body">Para o avisar quando chegar uma mensagem suspeita, precisamos de poder mostrar notificações. O telemóvel vai perguntar-lhe a seguir.</string>
+    <string name="onb_4_allow">Permitir avisos</string>
+    <string name="onb_5_title">Ver mensagens que chegam</string>
+    <string name="onb_5_body">Para avisos automáticos, ative o Guardião na lista \"Acesso a notificações\" do telemóvel. Vamos abrir essa página.\n\nO telemóvel vai mostrar um aviso geral sobre ler notificações. Nós só lemos WhatsApp e email.\n\nSe preferir não ativar, pode continuar a verificar mensagens à mão.</string>
+    <string name="onb_5_open">Abrir definições</string>
+    <string name="onb_6_title">Um aviso de exemplo</string>
+    <string name="onb_6_body">Veja como é um aviso. A mensagem é inventada.</string>
+    <string name="onb_6_show">Ver o exemplo</string>
+    <string name="onb_7_title">Peça ajuda quando precisar</string>
+    <string name="onb_7_body">Em cada aviso há um botão para pedir ajuda a alguém de confiança. Pode guardar o número dessa pessoa em \"Ajuda\".</string>
+
+    <!-- Notifications -->
+    <string name="channel_alerts">Avisos de burla</string>
+    <string name="channel_alerts_description">Avisos quando uma mensagem tem sinais de burla</string>
+    <string name="notif_public">O Guardião tem um aviso para si. Desbloqueie o telemóvel para ver.</string>
+    <string name="notif_source_whatsapp">Mensagem do WhatsApp</string>
+    <string name="notif_source_email">Email</string>
+    <string name="notif_source_other">Mensagem</string>
+    <string name="notif_open">Toque para ver o que fazer.</string>
+</resources>
