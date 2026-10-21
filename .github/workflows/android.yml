@@ -28,6 +28,10 @@ jobs:
       - name: App unit tests, lint and debug APK
         run: ./gradlew :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --stacktrace
 
+      - name: Print lint report on failure
+        if: failure()
+        run: cat app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt || true
+
       - name: Evaluation summary
         if: always()
         run: |

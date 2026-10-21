@@ -44,7 +44,6 @@ import pt.guardiao.app.ui.ProtectionScreen
 import pt.guardiao.app.ui.ResultModel
 import pt.guardiao.app.ui.ResultScreen
 import pt.guardiao.core.alert.AlertPayload
-import pt.guardiao.core.explain.EnglishCatalog
 import pt.guardiao.core.explain.ExplanationCatalog
 import pt.guardiao.core.explain.PtPtCatalog
 import pt.guardiao.core.ingest.SharedTextAdapter
@@ -70,8 +69,8 @@ class MainActivity : ComponentActivity() {
     private var status by mutableStateOf(ProtectionStatus(false, false, false))
     private var busy by mutableStateOf(false)
 
-    private val catalog: ExplanationCatalog
-        get() = if (resources.configuration.locales[0].language == "en") EnglishCatalog else PtPtCatalog
+    // The UI is European Portuguese only for now. EnglishCatalog exists in core for a future full translation.
+    private val catalog: ExplanationCatalog = PtPtCatalog
 
     private val notificationPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         refreshStatus()
