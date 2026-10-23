@@ -59,7 +59,7 @@ This installs a **test version**. It is not the final app and it is not on Googl
    - Open the zip. Inside is a file ending in `.apk`.
 2. **Copy it to the phone**: send the `.apk` file to yourself by email or put it on Google Drive, then open it on the phone.
 3. **Allow the installation**: Android will warn that it cannot install apps from this source. Tap **Definições**, turn on **Permitir desta fonte**, go back and tap **Instalar**. This is expected for test versions.
-   - If Play Protect shows a warning, choose **Instalar mesmo assim** only because this is your own test build.
+   - If Play Protect says **"App bloqueada para proteger o dispositivo"**, first tap **Mais detalhes** and look for **Instalar mesmo assim**. If there is only **OK**, the block cannot be skipped from that window. On a test phone only: open the **Play Store**, tap your profile picture, **Play Protect**, the gear icon, and turn off **Analisar apps com o Play Protect**. Install the file, then **turn it back on straight away**. Do not do this on the phone of someone who is not involved in testing.
 4. **Open Guardião** and follow the introduction.
 5. **To test automatic warnings**: when the introduction opens "Acesso a notificações", find Guardião and turn it on.
    - If the switch is greyed out, this is Android's protection for apps installed outside Google Play. Go to **Definições > Aplicações > Guardião**, tap the **⋮** menu at the top right, tap **Permitir definições restritas**, confirm, and try again.

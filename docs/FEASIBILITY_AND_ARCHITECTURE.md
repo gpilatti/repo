@@ -45,7 +45,11 @@ The app works fully without notification access: manual and shared-text checks a
 
 **Consent and permissions**: the user must enable the app in Android's "Notification access" settings page. It is not a runtime dialog. The app opens the page directly (`ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS` on Android 11+, falling back to `ACTION_NOTIFICATION_LISTENER_SETTINGS`), after an in-app explanation.
 
-**Sideloading**: since Android 13, apps installed outside an app store cannot enable notification access without an extra hidden "Allow restricted settings" step. In some countries, Play Protect blocks installing sideloaded apps that declare a notification listener (snippet; confirmed for Singapore and Malaysia, not confirmed for Portugal). **Conclusion: distribution must be through Google Play.** Testing a debug build on a phone works, but the tester may need the "Allow restricted settings" step.
+**Sideloading**: since Android 13, apps installed outside an app store cannot enable notification access without an extra hidden "Allow restricted settings" step. In some countries, Play Protect blocks installing sideloaded apps that declare a notification listener (snippet; confirmed for Singapore and Malaysia).
+
+**Observed in Portugal on 2026-10-23**: installing the debug APK from the phone's file manager on a Samsung phone was blocked by Play Protect ("App bloqueada para proteger o dispositivo. O Play Protect ainda não viu uma app deste programador."). The block may be due to the unknown developer, the notification listener, or both; this was not isolated.
+
+**Conclusion: distribution must be through Google Play.** For device testing before a release, use a Google Play internal testing track, or (developer phones only) temporarily switch off Play Protect scanning to install the debug build. Testers then also need the "Allow restricted settings" step.
 
 **Battery and reliability**: the system binds the listener and rebinds it after reboot. Aggressive battery managers on some manufacturers can disconnect it. Analysis is local and takes milliseconds, so the battery cost per notification is small. Not yet measured on a device.
 
