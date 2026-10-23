@@ -111,6 +111,7 @@ class MainActivity : ComponentActivity() {
                 SharedTextAdapter.toMessage(shared)?.let { analyseAndShow(it, Screen.Check(shared)) }
             }
             intent.action == ACTION_SHOW_ALERT -> AlertPayload.decode(intent.getStringExtra(EXTRA_ALERT))?.let {
+                app.reminders.acknowledgeAll()
                 screen = Screen.Result(ResultModel.fromAlert(it, catalog), Screen.Tabs(0))
             }
         }
@@ -199,7 +200,12 @@ class MainActivity : ComponentActivity() {
                         0 -> HomeScreen(
                             status, last,
                             onCheck = { screen = Screen.Check("") },
-                            onOpenAlert = { last?.let { screen = Screen.Result(ResultModel.fromAlert(it.payload, catalog), current) } },
+                            onOpenAlert = {
+                                last?.let {
+                                    app.reminders.acknowledgeAll()
+                                    screen = Screen.Result(ResultModel.fromAlert(it.payload, catalog), current)
+                                }
+                            },
                         )
                         1 -> ProtectionScreen(
                             status,

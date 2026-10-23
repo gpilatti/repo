@@ -7,7 +7,7 @@ An Android app that helps older adults in Portugal recognise scams arriving by W
 ## What it does today
 
 - **Verificar uma mensagem**: paste, type, share or select any text and get a plain-language assessment.
-- **Avisos automáticos** (after the user turns on notification access): reads the text visible in WhatsApp and email notifications, analyses it on the phone, and shows a warning when the risk is high. The warning contains no message content.
+- **Avisos automáticos** (after the user turns on notification access): reads the text visible in WhatsApp and email notifications, analyses it on the phone, and shows a warning when the risk is high. The warning contains no message content. Until it is opened, it pops up again when the phone is unlocked (up to 3 times in 24 hours) and when the person opens the suspicious message.
 - **Ajuda**: what to do if you already paid, simple rules, an optional trusted-person phone number, a practice warning.
 - No internet permission, no stored messages, no analytics, no backups.
 

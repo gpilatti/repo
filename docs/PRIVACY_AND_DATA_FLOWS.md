@@ -32,6 +32,7 @@ The app does not request access to contacts, SMS, call logs, files, location, th
 | Risk assessment | Level, signal types, short evidence excerpts | Memory | Discarded with the screen or after the alert is sent |
 | Alert payload | Enum codes only: level, confidence, source type, signal types, actions, limitations | The warning notification's intent | Until the notification is dismissed |
 | Last alert | The same codes and a timestamp | Memory (`RecentAlerts`) | Until the app process ends |
+| Pending reminders | The alert codes, a salted SHA-256 of the original notification's system key (the key can contain a phone number, so it is never kept as is), and counters | Memory (`AlertReminders`) | Until the person opens a warning, or 24 hours, at most 20 entries; lost when the process ends |
 | De-duplication fingerprints | SHA-256 of a random per-process salt plus source, sender and text | Memory | At most 6 hours and 200 entries; lost when the process ends. The random salt means fingerprints cannot be compared with a list of known texts or across restarts |
 
 Evidence excerpts (up to three short quotes from the message) are shown only on the result screen of a check the user started. They are never put in notifications or intents. IBANs are masked in evidence.
@@ -72,6 +73,15 @@ The optional interfaces for link reputation and AI (`ThreatIntelligenceProvider`
 - Errors in a detector, in link reputation or in AI degrade to the remaining results; they do not crash and do not record content.
 
 **Not fully under our control**: if the app crashes, Android may generate a crash report. With no crash SDK, this report goes only to Google Play's developer console (Android vitals) if the user allowed diagnostics. It contains a stack trace, and because `toString()` is redacted, it should not contain message content. This has not been tested with a real crash.
+
+## Reminders
+
+A warning that has not been opened pops up again (the same content-free notification, marked "Lembrete"):
+
+- when the phone is unlocked: at most 3 times, at least 10 minutes apart, within 24 hours;
+- when the person opens the original WhatsApp or email notification, or the chat (the sending app then clears its notification): once.
+
+To know these moments, the listener receives Android's "phone unlocked" event and the reason a supported app's notification was removed. Neither carries message content. Opening any warning in the app stops all reminders.
 
 ## Lock screen
 

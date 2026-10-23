@@ -37,10 +37,18 @@ class AlertNotifier(private val context: Context) : AlertDispatcher {
     }
 
     override fun dispatch(payload: AlertPayload) {
-        RecentAlerts.record(payload)
+        show(payload, reminder = false)
+    }
+
+    /**
+     * Shows a warning and returns its notification id, or null if notifications
+     * are not allowed. A reminder repeats an unopened warning with a short note.
+     */
+    fun show(payload: AlertPayload, reminder: Boolean): Int? {
+        if (!reminder) RecentAlerts.record(payload)
         if (Build.VERSION.SDK_INT >= 33 &&
             ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-        ) return
+        ) return null
 
         val open = Intent(context, MainActivity::class.java)
             .setAction(MainActivity.ACTION_SHOW_ALERT)
@@ -56,6 +64,7 @@ class AlertNotifier(private val context: Context) : AlertDispatcher {
                 else -> R.string.notif_source_other
             },
         )
+        val prefix = if (reminder) context.getString(R.string.notif_reminder) + " " else ""
         val publicVersion = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle(context.getString(R.string.app_name))
@@ -65,21 +74,26 @@ class AlertNotifier(private val context: Context) : AlertDispatcher {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle(PtPtCatalog.headline(payload.level))
-            .setContentText("$source. ${context.getString(R.string.notif_open)}")
-            .setStyle(NotificationCompat.BigTextStyle().bigText("$source. ${PtPtCatalog.summary(payload.level)} ${context.getString(R.string.notif_open)}"))
+            .setContentText("$prefix$source. ${context.getString(R.string.notif_open)}")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("$prefix$source. ${PtPtCatalog.summary(payload.level)} ${context.getString(R.string.notif_open)}"))
             .setPriority(if (payload.level == RiskLevel.CRITICAL) NotificationCompat.PRIORITY_MAX else NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
             .setPublicVersion(publicVersion)
             .setContentIntent(pending)
             .setAutoCancel(true)
-            .setOnlyAlertOnce(true)
             .build()
-        try {
+        return try {
             NotificationManagerCompat.from(context).notify(id, notification)
+            id
         } catch (_: SecurityException) {
             // Permission revoked between the check and the call: the in-app status will show it.
+            null
         }
+    }
+
+    fun cancel(id: Int) {
+        NotificationManagerCompat.from(context).cancel(id)
     }
 
     companion object {
